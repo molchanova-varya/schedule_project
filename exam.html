@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пересдачи студентов</title>
+    <link rel="stylesheet" href="exam.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Пересдачи студентов</h1>
+        <form id="examForm">
+            <div class="form-group">
+                <label for="courseNumber">Номер курса:</label>
+                <select id="courseNumber" name="courseNumber" required>
+                    <option value="1">Курс 1</option>
+                    <option value="2">Курс 2</option>
+                    <option value="3">Курс 3</option>
+                    <option value="4">Курс 4</option>
+                    <option value="5">Курс 5</option>
+                </select>
+            </div>
+            <!-- Добавленное поле аудитория -->
+            <div class="form-group">
+                <label for="auditorium">Аудитория:</label>
+                <input type="text" id="auditorium" name="auditorium">
+            </div>
+            <!-- Конец добавленного поля -->
+            <div class="form-group">
+                <label for="program">Образовательная программа:</label>
+                <select id="program" name="program" required>
+                    <option value="ПМ">Прикладная математика</option>
+                    <option value="КБ">Компьютерная безопасность</option>
+                    <option value="ИТСС">Информационные технологии и системы связи</option>
+                    <option value="ИБ">Информационная безопасность</option>
+                    <option value="ИВТ">Информатика и вычислительная техника</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="subject">Дисциплина:</label>
+                <input type="text" id="subject" name="subject" required>
+            </div>
+            <div class="form-group">
+                <label for="date">Дата:</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+            <div class="form-group">
+                <label for="time">Время:</label>
+                <input type="time" id="time" name="time" required>
+            </div>
+            <div class="form-group">
+                <label for="lecturer">Председатель комиссии:</label>
+                <input type="text" id="lecturer" name="lecturer">
+            </div>
+            <div class="form-group">
+                <label for="studentsCount">Количество студентов, пересдающих предмет:</label>
+                <input type="number" id="studentsCount" name="studentsCount" min="0">
+            </div>
+            <button type="submit">Отправить</button>
+        </form>
+    </div>
+
+    <script src="exam.js"></script>
+</body>
+</html>
