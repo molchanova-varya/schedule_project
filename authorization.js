@@ -1,11 +1,26 @@
-document.getElementById("loginForm").addEventListener("submit", function(event) {
+document.getElementById('loginForm').addEventListener('submit', async function(event) {
     event.preventDefault();
-    var username = document.getElementById("username").value;
-    var password = document.getElementById("password").value;
-    
-    // логика для аутентификации
+    var username = document.getElementById('username').value;
+    var password = document.getElementById('password').value;
 
-    redirectToExamPage();
+    try {
+        const response = await fetch("/login", {
+            method: "POST",
+            headers: { "Accept": "application/json", "Content-Type": "application/json" },
+            body: JSON.stringify({ 
+                username: username,
+                password: password
+            })
+        });
+
+        if (response.ok) {
+            redirectToExamPage();
+        } else {
+            console.log("Authentication failed. Please try again.");
+        }
+    } catch (error) {
+        console.error("An error occurred:", error);
+    }
 });
 
 function redirectToExamPage() {
