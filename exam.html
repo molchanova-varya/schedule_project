@@ -20,33 +20,22 @@
                     <option value="5">Курс 5</option>
                 </select>
             </div>
-            <!-- Добавленное поле аудитория -->
-            <div class="form-group">
-                <label for="auditorium">Аудитория:</label>
-                <input type="text" id="auditorium" name="auditorium">
-            </div>
-            <!-- Конец добавленного поля -->
-            <div class="form-group">
-                <label for="program">Образовательная программа:</label>
-                <select id="program" name="program" required>
-                    <option value="ПМ">Прикладная математика</option>
-                    <option value="КБ">Компьютерная безопасность</option>
-                    <option value="ИТСС">Информационные технологии и системы связи</option>
-                    <option value="ИБ">Информационная безопасность</option>
-                    <option value="ИВТ">Информатика и вычислительная техника</option>
-                </select>
-            </div>
             <div class="form-group">
                 <label for="subject">Дисциплина:</label>
-                <input type="text" id="subject" name="subject" required>
+                <input type="text" id="subject" name="subject" list="disciplineOptions" required>
+                <datalist id="disciplineOptions"></datalist>
             </div>
             <div class="form-group">
                 <label for="date">Дата:</label>
                 <input type="date" id="date" name="date" required>
             </div>
             <div class="form-group">
-                <label for="time">Время:</label>
-                <input type="time" id="time" name="time" required>
+                <label for="startTime">Время начала:</label>
+                <input type="time" id="startTime" name="startTime" required>
+            </div>
+            <div class="form-group">
+                <label for="endTime">Время окончания:</label>
+                <input type="time" id="endTime" name="endTime" required>
             </div>
             <div class="form-group">
                 <label for="lecturer">Председатель комиссии:</label>
@@ -58,8 +47,71 @@
             </div>
             <button type="submit">Отправить</button>
         </form>
+
+        <div class="form-group">
+            <h2>Выбор преподавателей</h2>
+            <div class="field-group">
+                <input type="text" id="field1" class="lecturer-field" readonly>
+                <button type="button" class="select-button" onclick="selectLecturer('field1')">Выбрать</button>
+            </div>
+            <div class="field-group">
+                <input type="text" id="field2" class="lecturer-field" readonly>
+                <button type="button" class="select-button" onclick="selectLecturer('field2')">Выбрать</button>
+            </div>
+            <div class="field-group">
+                <input type="text" id="field3" class="lecturer-field" readonly>
+                <button type="button" class="select-button" onclick="selectLecturer('field3')">Выбрать</button>
+            </div>
+            <div class="field-group">
+                <input type="text" id="field4" class="lecturer-field" readonly>
+                <button type="button" class="select-button" onclick="selectLecturer('field4')">Выбрать</button>
+            </div>
+            <div class="field-group">
+                <input type="text" id="field5" class="lecturer-field" readonly>
+                <button type="button" class="select-button" onclick="selectLecturer('field5')">Выбрать</button>
+            </div>
+            <div class="field-group">
+                <input type="text" id="field6" class="lecturer-field" readonly>
+                <button type="button" class="select-button" onclick="selectLecturer('field6')">Выбрать</button>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <button id="generateCommissions" class="styled-button">Сформировать смежные комиссии</button>
+        </div>
+
+        <div class="form-group" id="commissionOptions" style="display: none;">
+            <h2>Выбор смежных комиссий</h2>
+            <div class="commission-option" onclick="selectCommission('variant1')">
+                <input type="radio" id="variant1" name="commissionVariant" value="variant1">
+                <label for="variant1">Вариант 1</label>
+                <div class="empty-box"></div>
+            </div>
+            <div class="commission-option" onclick="selectCommission('variant2')">
+                <input type="radio" id="variant2" name="commissionVariant" value="variant2">
+                <label for="variant2">Вариант 2</label>
+                <div class="empty-box"></div>
+            </div>
+            <div class="commission-option" onclick="selectCommission('variant3')">
+                <input type="radio" id="variant3" name="commissionVariant" value="variant3">
+                <label for="variant3">Вариант 3</label>
+                <div class="empty-box"></div>
+            </div>
+        </div>
+
+        <div class="center-buttons">
+            <button id="generateOrder" class="center-button">Сформировать распоряжение</button>
+            <button id="downloadOrder" class="center-button">Скачать распоряжение</button>
+            <button id="generateEmailText" class="center-button">Сформировать текст рассылки письма</button>
+        </div>
+
+        <div class="form-group">
+            <textarea id="emailText" rows="4" cols="50"></textarea><br>
+            <button id="copyEmailText" class="center-button">Скопировать</button>
+        </div>
     </div>
 
     <script src="exam.js"></script>
 </body>
 </html>
+
